@@ -1,13 +1,11 @@
 package com.example.demo;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class Professor {
     private String nome;
     private Map<DiaDaSemana, Set<Horario>> disponibilidade;
+    private int cargaHorariaSemanal;
 
     public Professor() {
         this.disponibilidade = new HashMap<>();
@@ -35,6 +33,14 @@ public class Professor {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public int getCargaHorariaSemanal() {
+        return cargaHorariaSemanal;
+    }
+
+    public void setCargaHorariaSemanal(int cargaHoraria) {
+        this.cargaHorariaSemanal = cargaHoraria;
     }
 
     public Map<DiaDaSemana, Set<Horario>> getDisponibilidade() {

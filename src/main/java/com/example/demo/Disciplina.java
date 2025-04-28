@@ -2,23 +2,31 @@ package com.example.demo;
 
 public class Disciplina {
     private String nome;
-    private String horario;
+    private String horario; // Mantido para compatibilidade, mas menos usado
     private Professor professor;
     private boolean necessitaComputador;
     private int numeroAlunos;
-
-    public Disciplina() {}
+    private int horasSemanais;
 
     public Disciplina(String nome, String horario, Professor professor,
-                      boolean necessitaComputador, int numeroAlunos) {
+                      boolean necessitaComputador, int numeroAlunos, int horasSemanais) {
         this.nome = nome;
         this.horario = horario;
         this.professor = professor;
         this.necessitaComputador = necessitaComputador;
         this.numeroAlunos = numeroAlunos;
+        this.horasSemanais = horasSemanais;
     }
 
     // Getters e Setters
+    public int getHorasSemanais() {
+        return horasSemanais;
+    }
+
+    public void setHorasSemanais(int horasSemanais) {
+        this.horasSemanais = horasSemanais;
+    }
+
     public String getNome() {
         return nome;
     }
@@ -61,17 +69,11 @@ public class Disciplina {
 
     @Override
     public String toString() {
-        return String.format("%s (%s) | Prof: %s | %s | %s | Alunos: %d",
+        return String.format("%s (%s) | Prof: %s | %s | Alunos: %d",
                 nome,
                 necessitaComputador ? "Precisa de PC" : "Não precisa de PC",
                 professor.getNome(),
-                horario,
-                "Dia: " + getDiaFromHorario(),
+                horario != null ? horario : "Sem horário",
                 numeroAlunos);
-    }
-
-    private String getDiaFromHorario() {
-        // Lógica para extrair dia do horário (implementar conforme necessidade)
-        return "Segunda"; // Exemplo simplificado
     }
 }
